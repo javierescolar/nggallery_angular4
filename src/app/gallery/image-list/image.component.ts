@@ -17,6 +17,10 @@ import { Image } from '../../models/image';
       -webkit-filter: grayscale(1);
       /* Google Chrome, Safari 6+ & Opera 15+ */
   }
+  
+  a:hover {
+    cursor:pointer;
+  }
 `]
 })
 export class ImageComponent implements OnInit {
