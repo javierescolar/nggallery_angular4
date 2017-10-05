@@ -2,6 +2,8 @@ import { routes } from './app.routes';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar.component';
@@ -13,6 +15,10 @@ import { ImageService } from './services/image.service';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminImagesListComponent } from './admin/admin-images-list/admin-images-list.component';
+import { DashboardComponent } from './admin/dashboard.component';
+import { AdminImageCreateComponent } from './admin/admin-image-create/admin-image-create.component';
 
 
 @NgModule({
@@ -24,11 +30,17 @@ import { AboutComponent } from './about/about.component';
     ImageComponent,
     ImageDetailComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    AdminComponent,
+    AdminImagesListComponent,
+    DashboardComponent,
+    AdminImageCreateComponent
   ],
   imports: [
     routes,
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule
   ],
   providers: [ImageService],
   bootstrap: [AppComponent]
