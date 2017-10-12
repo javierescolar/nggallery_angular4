@@ -1,0 +1,61 @@
+<div class="col-md-10 col-md-offset-1">
+    <div>
+        <a [routerLink]="['/admin/']" class="btn btn-default"> Volver</a>
+    </div>
+</div>
+
+<div class="col-md-10 col-md-offset-1">
+    <div class="well well bs-component">
+        <form novalidate class="form-horizontal" (ngSubmit)="createImage(createImageForm.value)" #createImageForm="ngForm">
+            <fieldset>
+                <legend>Añadir una nueva imagen</legend>
+                <div class="form-group">
+                    <label for="thumbnail" class="col-lg-2 control-label">Miniatura</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="thumbnail" name="thumbnail" placeholder="Miniatura de la imagen" ngModel #thumbnail="ngModel" required minlength="3">
+                        <div *ngIf="thumbnail.errors?.required && thumbnail.touched" class="alert alert-danger">
+                            La miniatura es obligatoria
+                        </div>
+                        <div *ngIf="thumbnail.errors?.minlength && thumbnail.touched" class="alert alert-danger">
+                            Debe tener un mínimo de tres caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="imageLink" class="col-lg-2 control-label">Enlace Imagen</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="imageLink" name="imageLink" placeholder="Enlace a la imagen" ngModel #imageLink="ngModel" required>
+                        <div *ngIf="imageLink.errors?.required && imageLink.touched" class="alert alert-danger">
+                            El enlace a la imagen es obligatorio
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="title" class="col-lg-2 control-label">Título</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Título" ngModel #title="ngModel" required>
+                        <div *ngIf="title.errors?.required && title.touched" class="alert alert-danger">
+                            El título es obligatorio
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="col-lg-2 control-label">Descripción</label>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" rows="3" id="description" name="description" placeholder="Descripción de la imagen" ngModel #description="ngModel" required></textarea>
+                        <div *ngIf="description.errors?.required && description.touched" class="alert alert-danger">
+                            La descripción es obligatoria
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <a [routerLink]="['/admin/']" class="btn btn-default"> Cancelar</a>
+                        <button type="submit" class="btn btn-primary" [disabled]="createImageForm.invalid">Crear</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

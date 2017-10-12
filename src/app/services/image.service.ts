@@ -17,4 +17,9 @@ export class ImageService {
       .map((response: Response) => response.json())
       .catch((error: any) => Observable.throw(error.json().error || { message: 'Error del servidor' }));
   }
+
+  getImage(id: String): Observable<Image[]> {
+    return this.http.get('http://127.0.0.1:8000/api/v1/images/'+id)
+      .map((response: Response) => response.json())
+  }
 }
